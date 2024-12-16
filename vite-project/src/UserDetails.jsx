@@ -1,9 +1,19 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+
 
 const UserDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+
+  const goToHome=()=>{
+      navigate('/');
+  }
+
   const userId = parseInt(id, 10);
+  const handleUserClick = (id) => {
+    navigate(`/user/${id}`);
+  };
 
   const users = [
     { id: 1, name: 'Alice' },
@@ -24,6 +34,7 @@ const UserDetails = () => {
       <h1>User Details</h1>
       <p>User ID: {user.id}</p>
       <p>Name: {user.name}</p>
+      <button onClick={goToHome}>go back to home</button>
     </div>
   );
 };

@@ -15,6 +15,9 @@ const Users = () => {
   const handleUserClick = (id) => {
     navigate(`/user/${id}`);
   };
+ const goToHome = (id) => {
+    navigate(`/`);
+  };
 
   return (
     <div>
@@ -26,6 +29,7 @@ const Users = () => {
           </li>
         ))}
       </ul>
+      <button onClick={goToHome}>Go back to home</button>
     </div>
   );
 };
